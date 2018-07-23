@@ -46,7 +46,8 @@ end
 
 group :production do
   # Use postgres as the database for production
-  gem 'pg'
+  # gem 'pg'
+  gem 'sqlite3'
 end
 
 
