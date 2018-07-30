@@ -1,2 +1,3 @@
 https://github.com/heroku/heroku-buildpack-nodejs
-https://github.com/whynot/heroku-buildpack-ruby-with-sqlite3
+https://github.com/teamhephy/heroku-buildpack-ruby-with-sqlite3
+https://github.com/heroku/heroku-buildpack-ruby
