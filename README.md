@@ -113,9 +113,9 @@ $ ./deis run rake db:seed
 However, since we are not connected to an external DB but instead we are using awesome sqlite3 in production, we need some way to run the migration and seed of all the pods' file system databases. So here are the two commands that will do that for each pod of this application (these commands should be ran whenever you scale up pods):
 
 ```console
-$ kubectl exec $(kubectl get pods -n rocksolidapp | awk '{print $1}' | awk 'NR>1') -n rocksolidapp -- /bin/bash /runner/init rake db:migrate
+$ kubectl get pods -n rocksolidapp | awk '{print $1}' | awk 'NR>1' | xargs -i sh -c 'kubectl exec {} -n rocksolidapp -- /bin/bash /runner/init rake db:migrate'
 
-$ kubectl exec $(kubectl get pods -n rocksolidapp | awk '{print $1}' | awk 'NR>1') -n rocksolidapp -- /bin/bash /runner/init rake db:seed
+$ kubectl get pods -n rocksolidapp | awk '{print $1}' | awk 'NR>1' | xargs -i sh -c 'kubectl exec {} -n rocksolidapp -- /bin/bash /runner/init rake db:seed'
 ```
 
 In future releases of Hephy Workflow we plan to have support for the `release` Procfile type. See Hephy Workflow [Issue #65](https://github.com/teamhephy/workflow/issues/65).
