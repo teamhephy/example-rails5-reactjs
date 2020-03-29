@@ -2,8 +2,8 @@
   "name": "rock-solid-modern-ingredients-app",
   "license": "MIT",
   "engines": {
-    "node": "6.9.5",
-    "yarn": "1.7.0"
+    "node": ">=8.0.0 <14.0.0",
+    "yarn": "1.22.4"
   },
   "scripts": {
     "build": "yarn --cwd client install && yarn --cwd client build",
