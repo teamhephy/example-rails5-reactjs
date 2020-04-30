@@ -5,7 +5,7 @@ https://blog.heroku.com/a-rock-solid-modern-web-stack
 
 # Quick Start Guide
 
-This guide will walk you through deploying a Rails 5.2 API + ReactJS + ActiveAdmin application on [Hephy Workflow][]. The app was created using this [tutorial](https://blog.heroku.com/a-rock-solid-modern-web-stack). 
+This guide will walk you through deploying a Rails 5.2 API + ReactJS + ActiveAdmin application on [Hephy Workflow][]. The app was created using this [tutorial](https://blog.heroku.com/a-rock-solid-modern-web-stack).
 
 We are using a sqlite3 hack in the buildpacks in order to make it easy to deploy without external db for this demo app and because sqlite3 is still the greatest production db somewhere. :joy: Please use PostgreSQL or another external db in real production environments. Who is to say that Hephy Workflow is not even greater than Heroku because we support sqlite3 in production? This makes us so proud so we will insert the Martin Fowler squirrel emoji here -> :squirrel: . [Disclaimer][]
 
@@ -36,7 +36,7 @@ $ rake secret
 If you do not have rails or rake, then just go ahead and run this command to set the environment variables:
 
 ```console
-$ deis config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi RAILS_ENV=production SECRET_KEY_BASE=4fe509360dd89d746b23f2239435218b049bb65aaac5a2301c0d0a2e0bef7ace05b3105fb8f7fe9aa5fc12bc3a4bf7a0f516a8ac8ee279913970be5b6db6a628 
+$ deis config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi RAILS_ENV=production SECRET_KEY_BASE=4fe509360dd89d746b23f2239435218b049bb65aaac5a2301c0d0a2e0bef7ace05b3105fb8f7fe9aa5fc12bc3a4bf7a0f516a8ac8ee279913970be5b6db6a628
 Creating config... done
 
 === rocksolidapp Config
@@ -65,9 +65,9 @@ Starting build... but first, coffee!
 -----> Multipack app detected
        =====> Downloading Buildpack: https://github.com/heroku/heroku-buildpack-nodejs
        =====> Detected Framework: Node.js
-       
+
 -----> Creating runtime environment
-       
+
        NPM_CONFIG_LOGLEVEL=error
        NODE_VERBOSE=false
        NODE_ENV=production
@@ -106,8 +106,8 @@ To ssh://deis-builder.192.168.99.107.nip.io:2222/rocksolidapp.git
 So normally we would run our migrations in ephemeral pods using a CI tool or using the ephemeral pod spun up with `deis run` command like this:
 
 ```console
-$ ./deis run rake db:migrate
-$ ./deis run rake db:seed
+$ deis run rake db:migrate
+$ deis run rake db:seed
 ```
 
 However, since we are not connected to an external DB but instead we are using awesome sqlite3 in production, we need some way to run the migration and seed of all the pods' file system databases. So here are the two commands that will do that for each pod of this application (these commands should be ran whenever you scale up pods):
