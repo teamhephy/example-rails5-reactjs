@@ -119,14 +119,8 @@ GEM
     nokogiri (1.11.6-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-<<<<<<< HEAD
-    puma (3.12.6)
-=======
-    polyamorous (2.3.2)
-      activerecord (>= 5.2.1)
     puma (4.3.8)
       nio4r (~> 2.0)
->>>>>>> b9900ad709f74935e3782407bd465928a089e07b
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
